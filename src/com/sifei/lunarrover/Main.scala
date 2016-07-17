@@ -6,8 +6,8 @@ object Main {
 
   
   def main(args: Array[String]) {
-    var lunaRover = new LunaRover("1");
-    new Thread(lunaRover).start();
+    var lunarRover = new LunarRover("1");
+    new Thread(lunarRover).start();
     
 //    var generator = new Generator();
 //    generator.generate();

@@ -6,7 +6,7 @@ import scala.io.Source
 import scala.collection.mutable.ListBuffer
 
 
-class LunaRover (name: String) extends Runnable {
+class LunarRover (name: String) extends Runnable {
 
   
   override def run(){
