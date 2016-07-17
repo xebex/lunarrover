@@ -32,8 +32,6 @@ class LunarRover (name: String) extends Runnable {
       
       println(paths);
 
-      
-      i += 1;
     }
     
 
