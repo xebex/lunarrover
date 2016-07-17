@@ -11,7 +11,7 @@ class LunarRover (name: String) extends Runnable {
   
   override def run(){
     var instructions = parseFile(name);
-    println(instructions);
+    //println(instructions);
 
     var i : Int = 0;
     while (i < instructions.length - 1) {
@@ -29,6 +29,8 @@ class LunarRover (name: String) extends Runnable {
           found = true;
         }
       }
+      
+      println(paths);
 
       
       i += 1;
