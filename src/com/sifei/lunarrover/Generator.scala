@@ -1,15 +1,20 @@
 package com.sifei.lunarrover
 
 import scala.util.Random
-import com.sifei.lunarrover.Configuration._
+import java.io._
+import com.sifei.lunarrover.Atlas._
 import com.sifei.lunarrover.Direction._
 
 class Generator {
-  def generate() = {
+  //
+  def generate(fileName: String) = {
+    val writer = new PrintWriter(new File(fileName));
+    
     val rotations = Array(0, 90, 270);
     
     var previous = new Instruction(new Point(0, 0), E, 1, 0);   
     println(previous.toTag());
+    writer.write(previous.toTag() + "\n");
 
     
     while (!previous.point.equals(getBottomRightPoint())) {
@@ -38,9 +43,12 @@ class Generator {
           isLegal = true;
           previous = new Instruction(point, direction, speed, rotation);
           println(previous.toTag());
+          writer.write(previous.toTag() + "\n");
         }
       } 
     }
+    
+    writer.close();
   }
   
   private def getDirection(oldDirection : Direction, rotation : Int) : Direction = {

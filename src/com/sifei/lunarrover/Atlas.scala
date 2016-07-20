@@ -4,13 +4,14 @@ import Array._
 import scala.collection.mutable.Queue
 import scala.collection.mutable.Map
 import scala.collection.mutable.ListBuffer
+import com.sifei.lunarrover.Direction._
 
-object Configuration {
+object Atlas {
   //地图的行数
-  val ROWS : Int = 4
+  val ROWS : Int = 30;
   
   //地图的列数
-  val COLS : Int = 4 
+  val COLS : Int = 30;
   
   //初始化地图数据，使用二维数组保存，true表示是通的，false表示是障碍
   val MATRIX = ofDim[Boolean](ROWS, COLS);
@@ -94,5 +95,33 @@ object Configuration {
 
     
     return buf.toList;
-  }  
+  }
+  
+  def getNewPoint(from: Point, direction: Direction, step: Int) : Point = {
+    var x = from.x;
+    var y = from.y;
+    if (direction == E) {
+      x += step;
+      if (!isLegalRow(x)) {
+        x = ROWS - 1;
+      }
+    } else if (direction == W) {
+      x -= step;
+      if (!isLegalRow(x)) {
+        x = 0;
+      }
+    } else if (direction == S) {
+      y += step;
+      if (!isLegalColumn(y)) {
+        y = COLS - 1;
+      }
+    } else if (direction == N) {
+      y -= step;
+      if (!isLegalColumn(y)) {
+        y = 0;
+      }
+    }
+    
+    return new Point(x, y);
+  }
 }

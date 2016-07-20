@@ -1,7 +1,7 @@
 package com.sifei.lunarrover
 
 import scala.collection.mutable.ListBuffer
-import com.sifei.lunarrover.Configuration._
+import com.sifei.lunarrover.Atlas._
 
 class Point (xi: Int, yi: Int) {
   var x : Int = xi;
