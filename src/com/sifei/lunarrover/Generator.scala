@@ -5,6 +5,9 @@ import java.io._
 import com.sifei.lunarrover.Atlas._
 import com.sifei.lunarrover.Direction._
 
+/**
+ * 规划线路生成器
+ */
 class Generator {
   //
   def generate(fileName: String) = {

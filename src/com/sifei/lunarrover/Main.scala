@@ -2,6 +2,9 @@ package com.sifei.lunarrover
 
 import scala.collection.mutable.Map;
 
+/**
+ * 入口程序
+ */
 object Main {
   def main(args: Array[String]) {
     //控制中心
@@ -19,7 +22,4 @@ object Main {
 //    generator.generate("src/5.txt");
     
   }
-  
-  
-  
 }

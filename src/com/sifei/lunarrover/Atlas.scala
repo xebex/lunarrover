@@ -6,6 +6,9 @@ import scala.collection.mutable.Map
 import scala.collection.mutable.ListBuffer
 import com.sifei.lunarrover.Direction._
 
+/**
+ * 地图对象
+ */
 object Atlas {
   //地图的行数
   val ROWS : Int = 30;
@@ -32,6 +35,7 @@ object Atlas {
     return MATRIX(p.x)(p.y);
   }
   
+  //判断某个点是否为障碍点
   def isEnabled(x : Int, y : Int) : Boolean = {
     return MATRIX(x)(y);
   }
@@ -51,7 +55,7 @@ object Atlas {
     return new Point(ROWS - 1, COLS - 1);
   }
   
-  //广度优先搜索
+  //广度优先搜索，用于重新规划路径
   def bst(begin: Point, end: Point) : List[Point] = {
     var q = Queue[Point]();
     var visitedMap : Map[Point, Boolean] = Map();
@@ -97,6 +101,7 @@ object Atlas {
     return buf.toList;
   }
   
+  //根据起始点、方向和步长，计算运动后的新点
   def getNewPoint(from: Point, direction: Direction, step: Int) : Point = {
     var x = from.x;
     var y = from.y;

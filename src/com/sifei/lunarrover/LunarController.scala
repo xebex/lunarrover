@@ -5,14 +5,18 @@ import scala.collection.mutable.Queue
 import com.sifei.lunarrover.Atlas._
 import com.sifei.lunarrover.Direction._
 
+/**
+ * 控制中心
+ */
 class LunarController extends Runnable {
+  //每个月球车对应一个队列
   var map = Map[Int, Queue[Instruction]]();
   for (i <- 1 to 5) {
     var queue = Queue[Instruction]();
     map.put(i, queue);
   }
   
-  
+  //每个月球车会将上报的运行数据放入自己的队列中，由控制中心线程消费
   def enqueue(key: Int, value: Instruction) {
     map.synchronized {
       var queue = map.get(key);
@@ -20,6 +24,7 @@ class LunarController extends Runnable {
     }
   }
   
+  //根据月球车的当前上报数据，预测2秒后月球车的位置
   def getPredictionAfterTwoSeconds(instruction : Instruction) : Point = {
     var from = instruction.point;
     var direction = rotate(instruction.direction, instruction.rotation);

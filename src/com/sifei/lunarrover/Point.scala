@@ -3,6 +3,9 @@ package com.sifei.lunarrover
 import scala.collection.mutable.ListBuffer
 import com.sifei.lunarrover.Atlas._
 
+/**
+ * 地图上的一个点（格）
+ */
 class Point (xi: Int, yi: Int) {
   var x : Int = xi;
   var y : Int = yi;
@@ -50,6 +53,4 @@ class Point (xi: Int, yi: Int) {
   def getTag : String = {
     return x + "," + y;
   }
-  
-  
 }

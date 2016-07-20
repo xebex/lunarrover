@@ -5,10 +5,11 @@ import com.sifei.lunarrover.Direction._
 import scala.io.Source
 import scala.collection.mutable.ListBuffer
 
-
+/**
+ * 月球车
+ */
 class LunarRover (name: Int, controller: LunarController) extends Runnable {
 
-  
   override def run(){
     var zero = System.currentTimeMillis();
     
@@ -231,7 +232,4 @@ class LunarRover (name: Int, controller: LunarController) extends Runnable {
     
     return new Instruction(point, direction, speed, rotation);
   }
-
-
-  
 }
