@@ -19,7 +19,7 @@ object Main {
     
 //    //路线生成器
 //    var generator = new Generator();
-//    generator.generate("src/5.txt");
+//    generator.generate("src/6.txt");
     
   }
 }
